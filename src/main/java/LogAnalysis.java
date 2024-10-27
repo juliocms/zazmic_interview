@@ -6,6 +6,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.SparkConf;
 import java.io.Serializable;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 public class LogAnalysis {
 
@@ -71,9 +72,6 @@ public class LogAnalysis {
             .count()
             .orderBy("hour");
 
-        System.out.println("Hourly Aggregation:");
-        hourlyAggregation.show();
-
         // Daily Aggregation
         Dataset<Row> dailyAggregation = partitionedDF
             .withColumn("day", date_format(to_timestamp(col("timestamp")), "yyyy-MM-dd"))
@@ -81,17 +79,11 @@ public class LogAnalysis {
             .count()
             .orderBy("day");
 
-        System.out.println("Daily Aggregation:");
-        dailyAggregation.show();
-
         // Total number of actions and categories
         Dataset<Row> userActionCount = partitionedDF
             .groupBy("userId", "action")
             .agg(count("action").alias("action_count"))
             .orderBy("userId", "action");
-
-        System.out.println("Total number of actions and categories:");
-        userActionCount.show();
 
         // Filter error messages
         Dataset<Row> errorMessages = partitionedDF.filter(col("logLevel").equalTo("ERROR"));
@@ -103,9 +95,6 @@ public class LogAnalysis {
             .orderBy(desc("error_count"))
             .limit(5);
 
-        System.out.println("5 most common ERROR messages:");
-        frequentErrors.show();
-
         // Calculate the average time between consecutive occurrences of each error
         Dataset<Row> errorTimeGap = errorMessages
             .withColumn("timestamp", to_timestamp(col("timestamp")))
@@ -116,9 +105,6 @@ public class LogAnalysis {
             .agg(
                 avg("time_diff").alias("average_time_difference")
             );
-
-        System.out.println("Average time between consecutive occurrences of error messages:");
-        errorTimeGap.show();
 
         // User sessions
         Dataset<Row> sessionData = partitionedDF
@@ -143,7 +129,23 @@ public class LogAnalysis {
                 avg("session_duration").alias("average_session_duration")
             );
 
-        System.out.println("Total de sessões e duração média por usuário:");
+
+        System.out.println("Hourly Aggregation:");
+        hourlyAggregation.show();
+
+        System.out.println("Daily Aggregation:");
+        dailyAggregation.show();
+
+        System.out.println("Total number of actions and categories:");
+        userActionCount.show();
+
+        System.out.println("5 most common ERROR messages:");
+        frequentErrors.show();
+
+        System.out.println("Average time between consecutive occurrences of error messages:");
+        errorTimeGap.show();
+
+        System.out.println("Total sessions and average duration per user:");
         sessionSummary.show();
 
         sc.stop();
