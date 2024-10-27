@@ -1,0 +1,38 @@
+2024-10-01 08:15:27,INFO,user1,LOGIN,User logged in
+2024-10-01 08:16:27,INFO,user1,NAVIGATE,User navigated to homepage
+2024-10-01 08:20:30,ERROR,user1,DOWNLOAD,Failed to download file
+2024-10-01 08:25:27,INFO,user2,LOGIN,User logged in
+2024-10-01 08:45:00,INFO,user1,LOGOUT,User logged out
+2024-10-01 09:00:12,ERROR,user1,DOWNLOAD,Failed to download file
+2024-10-01 09:01:00,INFO,user2,NAVIGATE,User navigated to settings
+2024-10-01 09:15:30,INFO,user3,LOGIN,User logged in
+2024-10-01 09:30:30,INFO,user3,UPLOAD,File uploaded successfully
+2024-10-01 09:45:27,INFO,user3,NAVIGATE,User navigated to dashboard
+2024-10-01 09:55:00,ERROR,user3,UPLOAD,Failed to upload file
+2024-10-01 10:00:00,INFO,user1,LOGIN,User logged in
+2024-10-01 10:05:00,INFO,user2,LOGOUT,User logged out
+2024-10-01 10:10:00,ERROR,user1,DOWNLOAD,Failed to download file
+2024-10-01 10:20:00,INFO,user3,LOGOUT,User logged out
+2024-10-01 10:25:00,INFO,user4,LOGIN,User logged in
+2024-10-01 10:30:00,INFO,user4,DOWNLOAD,File downloaded successfully
+2024-10-01 10:35:00,INFO,user4,LOGOUT,User logged out
+2024-10-01 10:40:00,ERROR,user1,DOWNLOAD,Failed to download file
+2024-10-01 10:45:00,INFO,user1,LOGOUT,User logged out
+2024-10-01 11:00:00,INFO,user1,LOGIN,User logged in
+2024-10-01 11:15:00,INFO,user1,NAVIGATE,User navigated to reports
+2024-10-01 11:30:00,INFO,user1,LOGOUT,User logged out
+2024-10-01 12:00:00,INFO,user2,LOGIN,User logged in
+2024-10-01 12:15:00,INFO,user2,UPLOAD,File uploaded successfully
+2024-10-01 12:30:00,INFO,user2,LOGOUT,User logged out
+2024-10-01 12:45:00,INFO,user3,LOGIN,User logged in
+2024-10-01 13:00:00,ERROR,user3,UPLOAD,Failed to upload file
+2024-10-01 13:15:00,INFO,user3,LOGOUT,User logged out
+2024-10-01 14:00:00,INFO,user4,LOGIN,User logged in
+2024-10-01 14:15:00,INFO,user4,UPLOAD,File uploaded successfully
+2024-10-01 14:30:00,INFO,user4,LOGOUT,User logged out
+2024-10-01 15:00:00,INFO,user1,LOGIN,User logged in
+2024-10-01 15:15:00,ERROR,user1,DOWNLOAD,Failed to download file
+2024-10-01 15:30:00,INFO,user1,LOGOUT,User logged out
+2024-10-01 16:00:00,INFO,user2,LOGIN,User logged in
+2024-10-01 16:15:00,INFO,user2,NAVIGATE,User navigated to profile
+2024-10-01 16:30:00,INFO,user2,LOGOUT,User logged out
